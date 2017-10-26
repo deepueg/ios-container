@@ -102,7 +102,7 @@ static dispatch_semaphore_t semaphore;
     semaphore = dispatch_semaphore_create(0);
     dispatch_once(&startOnceToken, ^{
         [sharedInstance startContainerWithConfiguration:reactContainerConfig
-                           ];
+                                    ];
     });
 }
 
