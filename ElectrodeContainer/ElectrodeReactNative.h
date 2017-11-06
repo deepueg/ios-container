@@ -52,7 +52,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 
 + (void)startWithConfigurations:(id<ElectrodePluginConfig>)reactContainerConfig
-                                                                                                ;
+                                                                                                                        ;
 
 
 /**
