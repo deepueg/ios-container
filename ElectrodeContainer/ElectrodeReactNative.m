@@ -184,9 +184,9 @@ static dispatch_semaphore_t semaphore;
 - (void)registerAPIImplementations:(NSObject <APIImplsConfigWrapperDelegate> *)configWrapper
 {
     [[MoviesApiController new] registerWithConfig:[configWrapper moviesApiConfig]];
-    [[PetApiController new] registerWithConfig:nil;
-    [[StoreApiController new] registerWithConfig:nil;
-    [[UserApiController new] registerWithConfig:nil;
+    [[PetApiController new] registerWithConfig:nil];
+    [[StoreApiController new] registerWithConfig:nil];
+    [[UserApiController new] registerWithConfig:nil];
 
 }
 

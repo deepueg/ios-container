@@ -18,9 +18,11 @@
 #import <UIKit/UIKit.h>
 @protocol ElectrodePluginConfig;
 
+@class ApiConfig, , , , ;
+
 @protocol APIImplsConfigWrapperDelegate <NSObject>
 @required
-- (MoviesConfig *_Nonnull)moviesApiConfig;
+- (MoviesApiConfig *_Nonnull)moviesApiConfig;
 @end
 
 
