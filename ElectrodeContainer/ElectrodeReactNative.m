@@ -95,6 +95,7 @@ static dispatch_semaphore_t semaphore;
 #pragma mark - Public Methods
 
 + (void)startWithConfigurations:(id<ElectrodePluginConfig>)reactContainerConfig
+                apiImplementationsConfig: (NSObject <APIImplsConfigWrapperDelegate> *) apiImplConfig
 
 {
     id sharedInstance = [ElectrodeReactNative sharedInstance];
@@ -102,7 +103,8 @@ static dispatch_semaphore_t semaphore;
     semaphore = dispatch_semaphore_create(0);
     dispatch_once(&startOnceToken, ^{
         [sharedInstance startContainerWithConfiguration:reactContainerConfig
-                                             ];
+         apiImplementationsConfig: apiImplConfig
+         ];
     });
 }
 
@@ -138,6 +140,7 @@ static dispatch_semaphore_t semaphore;
 #pragma mark - Convenience Methods
 
 - (void)startContainerWithConfiguration:(id<ElectrodePluginConfig>)reactContainerConfig
+         apiImplementationsConfig: (NSObject <APIImplsConfigWrapperDelegate> *) apiImplConfig
 {
     ElectrodeBridgeDelegate *delegate = [[ElectrodeBridgeDelegate alloc] init];
     
@@ -154,6 +157,8 @@ static dispatch_semaphore_t semaphore;
                                                  selector:@selector(signalElectrodeOnReactNativeInitializedSemaphore:)
                                                      name:RCTJavaScriptDidLoadNotification object:nil];
     [self loadCustomFonts];
+
+    [self registerAPIImplementations:apiImplConfig];
 
 }
 
@@ -174,6 +179,15 @@ static dispatch_semaphore_t semaphore;
             CFRelease(provider);
         }
     }
+}
+
+- (void)registerAPIImplementations:(NSObject <APIImplsConfigWrapperDelegate> *)configWrapper
+{
+    [[MoviesApiController new] registerWithConfig:[configWrapper moviesApiConfig]];
+    [[PetApiController new] registerWithConfig:nil;
+    [[StoreApiController new] registerWithConfig:nil;
+    [[UserApiController new] registerWithConfig:nil;
+
 }
 
 - (void)dealloc {

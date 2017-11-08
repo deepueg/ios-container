@@ -16,4 +16,5 @@
 
 #import "ElectrodeContainer.h"
 #import "ElectrodeBridgeDelegate.h"
+#import "ElectrodeContainer/ElectrodeContainer-Swift.h"
 

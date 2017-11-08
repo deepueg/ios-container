@@ -17,6 +17,13 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 @protocol ElectrodePluginConfig;
+
+@protocol APIImplsConfigWrapperDelegate <NSObject>
+@required
+- (MoviesConfig *_Nonnull)moviesApiConfig;
+@end
+
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ElectrodeContainerConfig: NSObject <ElectrodePluginConfig>
@@ -52,7 +59,8 @@ NS_ASSUME_NONNULL_BEGIN
  */
 
 + (void)startWithConfigurations:(id<ElectrodePluginConfig>)reactContainerConfig
-                                                                                                                        ;
+                        apiImplementationsConfig: (NSObject <APIImplsConfigWrapperDelegate> *) apiImplConfig
+                        ;
 
 
 /**
