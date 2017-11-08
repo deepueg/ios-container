@@ -19,9 +19,6 @@
 @protocol ElectrodePluginConfig;
 
 @class MoviesApiConfig;
-@class ;
-@class ;
-@class ;
 
 @protocol APIImplsConfigWrapperDelegate <NSObject>
 @required
