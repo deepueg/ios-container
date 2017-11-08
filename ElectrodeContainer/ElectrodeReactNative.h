@@ -18,7 +18,7 @@
 #import <UIKit/UIKit.h>
 @protocol ElectrodePluginConfig;
 
-@class ApiConfig, , , , ;
+@class ApiConfig, ;
 
 @protocol APIImplsConfigWrapperDelegate <NSObject>
 @required
