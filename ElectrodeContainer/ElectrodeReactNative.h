@@ -18,11 +18,8 @@
 #import <UIKit/UIKit.h>
 @protocol ElectrodePluginConfig;
 
-@class MoviesApiConfig;
 
 @protocol APIImplsConfigWrapperDelegate <NSObject>
-@required
-- (MoviesApiConfig *_Nonnull)moviesApiConfig;
 @end
 
 
@@ -61,8 +58,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 
 + (void)startWithConfigurations:(id<ElectrodePluginConfig>)reactContainerConfig
-                        apiImplementationsConfig: (NSObject <APIImplsConfigWrapperDelegate> *) apiImplConfig
-                        ;
+;
 
 
 /**
